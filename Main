@@ -1,0 +1,34 @@
+import os
+
+list = []
+CountElements = 0
+
+print("Введите путь до файла: ")
+n = input()
+
+print("Что вы хотите найти?(1 - папки; 2 - файлы; 3 - количество файлов) ")
+what = input()
+
+
+def c():
+    global full
+    CountElements = 0
+    for adresses, dirs, files in os.walk(n):
+        if what == '1':
+            for dir in dirs:
+                full = os.path.join(dir)
+
+        if what == '2':
+            for file in files:
+                full = os.path.join(file)
+
+
+        if what == '3':
+            print(CountElements)
+        CountElements += 1
+
+        list.append(full)
+
+    print(list)
+
+c()
